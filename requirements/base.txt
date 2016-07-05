@@ -1,1 +1,8 @@
-.
+Django==1.9.7
+django-disqus==0.5
+django-tagging==0.4.3
+django-tinymce==2.3.0
+Markdown==2.6.6
+mock==2.0.0
+pbr==1.10.0
+six==1.10.0
