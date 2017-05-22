@@ -1,0 +1,28 @@
+{% extends 'art/art_base.html' %}
+
+{% block main-content %}
+
+	{% for art in arts %}
+
+		<div id="all-arts">
+			<div class="header">{{art.title}}</a>
+			</div>
+            <div>
+                <img src="/media/{{art.image_lowres}}" width="30%" height="30%" />
+            </div>
+			<p/>	
+            <span class="date">{{art.pub_date|date}} | </span>	
+            <span class="category"><i>{{art.art_type.category}}</i> | </span>
+            <span class="url"><a href={{ art.url }}> <i>Details</i> </a> </span>
+            <p/>
+			<div class="body">{{art.body|safe}}</div>
+			<br/>	
+			{% if not forloop.last %}
+				<div class="underline"></div>
+			{% endif %}
+			<br/>
+		</div>
+
+	{% endfor %}
+
+{% endblock %}

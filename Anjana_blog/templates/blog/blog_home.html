@@ -1,0 +1,31 @@
+{% extends 'blog/blog_base.html' %}
+
+{% block main-content %}
+
+	{% for entry in entries %}
+
+		<div id="all-entries">
+			<div class="header"><a href= {% url 'blog:blog_entry_detail' slug=entry.slug year=entry.pub_date|date:"Y" month=entry.pub_date|date:"b" day=entry.pub_date|date:"d" %}>{{entry.title}}</a>
+			<br/>
+			<span class="date">{{entry.pub_date|date}} | </span>
+			<span class="tags">in 
+			{% if entry.etags.count %}
+	                   <i> {% for tag in entry.etags %}
+        	                <a href={% url 'blog:blog_tag_page' tag=tag.name %}>{{ tag.name|upper }}{% if not forloop.last %}, {% endif %}</a>
+			    {% endfor %}</i>
+                        {% endif %}
+			</div>
+			<p/>		
+			<div class="body">{{entry.excerpt|safe}}</div>
+			
+			<br/>	
+			{% if not forloop.last %}
+				<div class="underline"></div>
+			{% endif %}
+			<br/>
+
+		</div>
+
+	{% endfor %}
+
+{% endblock %}

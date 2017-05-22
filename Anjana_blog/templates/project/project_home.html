@@ -1,0 +1,21 @@
+{% extends 'project/project_base.html' %}
+
+{% block main-content %}
+
+	{% for project in projects %}
+
+		<div id="all-projects">
+			<div class="header"><a href= {% url 'project:project_detail_page' slug=project.slug %}>{{project.title}}</a>
+			</div>
+			<p/>		
+			<div class="body">{{project.excerpt|safe}}</div>
+			<br/>	
+			{% if not forloop.last %}
+				<div class="underline"></div>
+			{% endif %}
+			<br/>
+		</div>
+
+	{% endfor %}
+
+{% endblock %}

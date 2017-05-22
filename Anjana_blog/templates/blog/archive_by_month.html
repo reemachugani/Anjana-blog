@@ -1,0 +1,35 @@
+{% extends 'blog/blog_base.html' %}
+
+{% block main-content %}
+
+	<h3> Blog Archive for {{ month|capfirst }} {{ year }} : </h3>
+	<br/>
+
+	{% for entry in entries %}
+
+		<div id="all-entries">
+			<h3><a href= {{ entry.get_absolute_url }}> {{entry.title}} </a></h3>
+			<br/>
+			{{entry.pub_date}} 
+			<br/><br/>
+			{{entry.excerpt}}
+			<br/><br/>
+
+			{% if entry.etags.count %}
+	        	<p>Tags: 
+	            {% for tag in entry.etags %}
+	                <a href={% url 'blog:blog_tag_page' tag=tag.name %} class="label">{{ tag.name }}</a>
+	            {% endfor %}
+		        </p>
+		    {% endif %}
+
+		    <br/>
+		        <ul class="nav nav-list">
+			    <li class="divider"></li>
+			    </ul>
+		    <br/>
+		</div>
+
+	{% endfor %}
+
+{% endblock %}

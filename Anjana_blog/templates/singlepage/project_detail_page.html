@@ -1,0 +1,11 @@
+{% extends 'singlepage/single_base.html' %}
+
+{% block main-content %}
+
+        <div class="header"> {{project.title}}
+        </div>
+        <span class="url"><a href="{{ project.url }}"> {{ project.url }} </a> </span>
+        <p/>
+        <span class="body">{{project.about|safe}}</span>
+
+{% endblock %}
