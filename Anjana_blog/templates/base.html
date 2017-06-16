@@ -8,68 +8,69 @@
 
 	</head>
   <body>
- 
+
     <div class="scene">
         <div class="scene_top">
-            <header class="header">
+            <header id="header">
                 <div class="row">
                     <div class="small-5 medium-6 large-6 columns">
                         <div class="anjana_name">Anjana Padmakumar</div>
                     </div>
                     <div class="columns small-7 medium-6 header__nav large-6">
                         <nav class="nav_links">
-                            <a class="nav_link" href={% url 'art:art_home' %}>ART WORK</a>
+                            <a class="nav_link" href={% url 'art:art_home' %}>WORK</a>
                             <!--<a class="nav_link" href={% url 'project:project_home' %}>PROJECTS</a>-->
                             <a class="nav_link" href={% url 'blog:blog_home' %}>BLOG</a>
                             {% for page in singlepages %}
-                                <a class="nav_link" href={% url 'singlepage:single_page' slug=page.slug %}>{{page.display_word}}</a>
+                            <a class="nav_link" href={% url 'singlepage:single_page' slug=page.slug %}>{{page.display_word}}</a>
                             {% endfor %}
-                        </nav
+                        </nav>
                     </div>
                 </div>
             </header>
+            
+            {% block navigationlist_and_promotext %}
             <div class="promo_area row">
                 <div class="columns small-12 medium-6">
                     <ul class="list">
-						{% block navigatorlist %}
 							<li><a>All Projects</a></li>
 							<li><a>Art Direction</a></li>
 							<li><a>Editorial</a></li>
 							<li><a>Type Design</a></li>
 							<li><a>Illustrations</a></li>
 							<li><a>3d Design</a></li>
-						{% endblock %}
                     </ul>
                 </div>
                 <div class="columns small-0 medium-6">
                     <div class="promo_text_div">
-						{% block promotext %}
                         	<h1 class="promo_text">Anjana is a Director, Designer and Creative.</h1>
-						{% endblock %}
                     </div>
                 </div>
             </div>
+            {% endblock %}
         </div>
-        <div class="artwork row">
-            <!-- MAIN-CONTENT, BLOG-ENTRIES, LINKS -->	
-                <div>
-                    {% block content %} {% endblock %}
-                </div>
+        <div class="scene_artwork">
+            <div class="artwork row">
+                {% block content %} {% endblock %}
+            </div>
         </div>
 
         <footer>
             <div class="row">
+                {% block footertext %}
                 <div class="columns medium-6">
                     <p> All work by Anjana Padmakumar
                 </div>
                 <div class="columns medium-6">
                     © 2017
                 </div>
+                {% endblock %}
             </div>
         </footer>
     </div>
  
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/script.min.js"></script>
+    <script src="/static/js/foundation.min.js"></script>
   </body>
 </html>

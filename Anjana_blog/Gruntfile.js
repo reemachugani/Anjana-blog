@@ -49,7 +49,8 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     'static/js/jquery.min.js': ['bower_components/jquery/dist/jquery.js'],
-                    'static/js/script.min.js': ['src/script.js']
+                    'static/js/script.min.js': ['src/script.js'],
+                    'static/js/foundation.min.js': ['bower_components/foundation-sites/dist/js/foundation.min.js']
                 }
             }
         },
