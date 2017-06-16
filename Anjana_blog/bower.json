@@ -1,0 +1,22 @@
+{
+  "name": "anjana-blog",
+  "description": "",
+  "main": "Gruntfile.js",
+  "authors": [
+    "mettafractal <abhpdk@gmail.com>",
+    "reemachugani <reemachugani@outlook.com"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/metafractal",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation-sites": "6.3.1"
+  }
+}

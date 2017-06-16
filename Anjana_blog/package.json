@@ -1,0 +1,22 @@
+{
+  "name": "anjana-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "grunt": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-contrib-connect": "latest",
+    "grunt-postcss": "latest",
+    "grunt-contrib-cssmin": "latest"
+  }
+}
