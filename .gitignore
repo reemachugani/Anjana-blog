@@ -3,3 +3,9 @@ secret_key.txt
 *.pyc
 *.idea
 *.sqlite3
+.vscode
+../.vscode/settings.json
+Anjana_blog/media
+Anjana_blog/bower_components
+Anjana_blog/node_modules
+.sass-cache
