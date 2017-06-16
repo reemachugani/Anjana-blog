@@ -16,6 +16,7 @@ class Art(models.Model):
         return os.path.join(instance.art_type.category, "low", filename)
 
     title = models.CharField(max_length=250, help_text=u'Max 250 characters')
+    slug = models.SlugField(help_text=u'Suggested value automatically generated from title. Must be unique.')
     body = models.TextField()
     body_html = models.TextField(editable=False, blank=True)
     pub_date = models.DateTimeField(default=datetime.datetime.now)
@@ -40,6 +41,10 @@ class Art(models.Model):
 
     def high_res_image_tag(self):
         return markdown('<img src="/%s/%s/%s" width="70%" height="70%" />' % (self.art_type, "high", self.image_highres))
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('art_detail_page', (), { 'slug': self.slug })
 
 register(Art, tag_descriptor_attr='atags')
 

@@ -1,0 +1,11 @@
+{% extends 'singlepage/single_base.html' %}
+
+{% block navigatorlist %}
+    <li>Date: {{art.pub_date|date}} </li>	
+    <li> Category: {{art.art_type.category}}</li>
+    {% if art.url %} <li><a href={{ art.url }}> <i>Links</i> </a> </li>
+{% endblock %}
+
+{% block main-content %}
+			<div class="body">{{art.body|safe}}</div>
+{% endblock %}

@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
-{% block content %}
-    <div class="category-tabs"> 
-        <a href={% url 'art:art_home' %}> All </a>
+{% block navigatorlist %}
+        <li><a href={% url 'art:art_home' %}> All </a></li>
         {% for categ in categories %}
-           <span> | <a href={% url 'art:art_by_category' category_name=categ.category %}> {{categ.category}} </a>
+           <li> <a href={% url 'art:art_by_category' category_name=categ.category %}> {{categ.category}} </a></li>
         {% endfor %}
-    </div>
+{% endblock %}
+
+{% block content %}
 	<div class="span2"></div>
 	<div id="main-content" class="span7" style="padding-top:3%;"> 
 		{% block main-content %} {% endblock %}

@@ -8,15 +8,15 @@
 			<div class="header">{{art.title}}</a>
 			</div>
             <div>
-                <img src="/media/{{art.image_lowres}}" width="30%" height="30%" />
+                <a href= {% url 'art:art_detail_page' slug=art.slug %}><img src="/media/{{art.image_highres}}" width="30%" height="30%" /></a>
             </div>
 			<p/>	
-            <span class="date">{{art.pub_date|date}} | </span>	
+            <!--<span class="date">{{art.pub_date|date}} | </span>	
             <span class="category"><i>{{art.art_type.category}}</i> | </span>
             <span class="url"><a href={{ art.url }}> <i>Details</i> </a> </span>
             <p/>
 			<div class="body">{{art.body|safe}}</div>
-			<br/>	
+			<br/>	-->
 			{% if not forloop.last %}
 				<div class="underline"></div>
 			{% endif %}

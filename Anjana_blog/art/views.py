@@ -15,3 +15,11 @@ def art_by_category(request, category_name):
     #     return redirect('art.views.art_home')
     categories = Art_Category.objects.all()
     return render_to_response('art/art_home.html', {'arts': category_arts, 'categories': categories}, context_instance=RequestContext(request))
+
+def art_detail_page(request, slug):
+    """
+    Displays detailed project page
+    """
+    art = get_object_or_404(Art, slug=slug)
+    categories = Art_Category.objects.all()
+    return render_to_response('singlepage/art_detail_page.html', {'art': art, 'categories': categories}, context_instance=RequestContext(request))

@@ -1,152 +1,75 @@
 <html>
 
 	<head>
-		<title>Anjana Padmakumar</title>
-		<link rel="stylesheet" href="/static/css/bootstrap.css" type="text/css" />	
-		<style type="text/css">
-	      body {
-		background-color: #DDD9CD;
-	      	background-repeat: repeat;
-	        color: #333332;
-		font-size: 16px;
-		font-weight: 250;
-		padding-top: 20px;
-	        padding-bottom: 30px;
-	      }
-		
-		.header{
-                 font-size: 26px;
-                 line-height: 100%;
-                 font-weight: 600;
-                 }
-		
-		h2{
-		 font-size: 26px;
-		}
-                h3{
-                 font-size: 22px;
-                 }
-		.banner a{
-		 color: #4FA9A9;
-		 text-decoration: none;
-		}
-		.banner a:hover{
-		 color: #4FA9A9;
-		 text-decoration: underline;
-		}
-	
-		a{
-                 color: #302226;
-                 text-decoration: none;
-                }
-		a:active{
-		 color: #4FA9A9;
-		 text-decoration: none;
-		}
-                a:hover{
-                 color: #4FA9A9;
-                 text-decoration: none;
-                }
-		.body a{
-		 color: #4FA9A9;
-		 border-bottom: 1px dotted #B9B8B8;
-		}
-		
-		.body a:hover{
-		 border-bottom: 1px dotted #302226;
-		}
-		
-		.date, .tags{
-		 color: #929291;
-		 font-size: 14px;
-		 font-weight: 100;
-		}
-		
-		.tags a{
-		 color: #929291;
-		}
-				
-		.tags a:hover{
-		 color: #4FA9A9;
-		 border-bottom: 1px dotted #929291;
-		}
-		
-		.categories-header{
-		 font-size:22px;
-		 line-height:175%;
-		}
-	
-		.underline{
-		 border-bottom: 1px solid #B9B8B8;
-		}
-		
-		.bookmark-title{
-		 font-size: 16px;
-		 font-weight: bold;
-		}
-		
-		.bookmark-desc{
-		 color: #555555;
-		}
-		
-	/*	.bookmark-tags a{
-                 text-decoration: none;
-                }
-                .bookmark-tags a:hover{
-                 text-decoration: none;
-		} */
-		
-		::-moz-selection{
-		 background-color: #9CFFD3;
-		}
-		::selection{
-		 background-color: #9CFFD3;
-		}
-	    </style>
-	    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
-
-	    <script type="text/javascript" src="//use.typekit.net/aln7xgn.js"></script>
-	    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Anjana</title>
+		<link rel="stylesheet" href="/static/css/style.css" />
 
 	</head>
+  <body>
+ 
+    <div class="scene">
+        <div class="scene_top">
+            <header class="header">
+                <div class="row">
+                    <div class="small-5 medium-6 large-6 columns">
+                        <div class="anjana_name">Anjana Padmakumar</div>
+                    </div>
+                    <div class="columns small-7 medium-6 header__nav large-6">
+                        <nav class="nav_links">
+                            <a class="nav_link" href={% url 'art:art_home' %}>ART WORK</a>
+                            <!--<a class="nav_link" href={% url 'project:project_home' %}>PROJECTS</a>-->
+                            <a class="nav_link" href={% url 'blog:blog_home' %}>BLOG</a>
+                            {% for page in singlepages %}
+                                <a class="nav_link" href={% url 'singlepage:single_page' slug=page.slug %}>{{page.display_word}}</a>
+                            {% endfor %}
+                        </nav
+                    </div>
+                </div>
+            </header>
+            <div class="promo_area row">
+                <div class="columns small-12 medium-6">
+                    <ul class="list">
+						{% block navigatorlist %}
+							<li><a>All Projects</a></li>
+							<li><a>Art Direction</a></li>
+							<li><a>Editorial</a></li>
+							<li><a>Type Design</a></li>
+							<li><a>Illustrations</a></li>
+							<li><a>3d Design</a></li>
+						{% endblock %}
+                    </ul>
+                </div>
+                <div class="columns small-0 medium-6">
+                    <div class="promo_text_div">
+						{% block promotext %}
+                        	<h1 class="promo_text">Anjana is a Director, Designer and Creative.</h1>
+						{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="artwork row">
+            <!-- MAIN-CONTENT, BLOG-ENTRIES, LINKS -->	
+                <div>
+                    {% block content %} {% endblock %}
+                </div>
+        </div>
 
-    <body>
-	 <div class="container-fluid">
-
-		<!-- BANNER -->
-		<div class="row-fluid banner" style="width:100%; padding:10px 0; background-color: #3F362F; color:#DE614F;">
-		
-			<div class="span1"></div>
-			<div class="span2">
-				<div align="center"> <img src="/static/images/anjana.jpg" width="100px" height="100px" class="img-circle"/> </div>
-			</div>
-			<div class="span7">
-				<h1>Anjana Padmakumar</h1>
-				<i>"Art is where WORK meets LOVE."</i>
-				<div style="text-align:right;">
-					<a href={% url 'art:art_home' %}>Art Work</a> &nbsp;&nbsp; | &nbsp;&nbsp; 
-					<a href={% url 'project:project_home' %}>Projects</a>&nbsp;&nbsp; | &nbsp;&nbsp; 
-                    <a href={% url 'blog:blog_home' %}>Blog</a> &nbsp;&nbsp; 
-					{% for page in singlepages %}
-						| &nbsp;&nbsp; <a href={% url 'singlepage:single_page' slug=page.slug %}>{{page.display_word}}</a> &nbsp;&nbsp;
-					{% endfor %}
-				</div>
-			</div>
-			<div class="span2"></div>
-		</div>
-
-		<!-- MAIN-CONTENT, BLOG-ENTRIES, LINKS -->	
-                <div class="row-fluid">
-			{% block content %} {% endblock %}
-            	</div>
-		
-	   </div>
-	
-          <div class="underline"></div>
-			
-          <footer id="site-footer" class="date">
-	      <p style="text-align:right; color:rgb(153, 153, 153);">&copy; Anjana Padmakumar </p>       
-	  </footer>
-		
-	</body>
+        <footer>
+            <div class="row">
+                <div class="columns medium-6">
+                    <p> All work by Anjana Padmakumar
+                </div>
+                <div class="columns medium-6">
+                    © 2017
+                </div>
+            </div>
+        </footer>
+    </div>
+ 
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/script.min.js"></script>
+  </body>
 </html>
