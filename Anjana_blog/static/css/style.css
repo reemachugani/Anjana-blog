@@ -2839,12 +2839,11 @@ body {
   background-color: #e8e4e5;
   box-sizing: border-box;
   margin: 0;
-  letter-spacing: .01em;
+  letter-spacing: 0.01em;
   font-size: 16px; }
 
-.scene {
-  padding-left: 0px;
-  padding-right: 0px; }
+.container {
+  position: relative; }
 
 div.row {
   padding-left: 1rem;
@@ -2867,11 +2866,75 @@ div.row {
       -ms-flex-flow: row wrap;
           flex-flow: row wrap; }
 
-#header {
-  padding-top: 48px;
-  padding-bottom: 48px;
+.cbp-af-header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  background-color: #e8e4e5;
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 110px;
+  -webkit-transition: height 0.3s;
+  transition: height 0.3s;
+  overflow: hidden; }
+
+.cbp-af-header .cbp-af-inner {
+  width: 100%;
+  padding: 0 0px;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+.cbp-af-inner {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+.cbp-af-header .anjana_name,
+.cbp-af-header nav {
+  display: inline-block; }
+
+.cbp-af-header .anjana_name {
+  text-transform: uppercase;
+  color: #0f0f0f;
+  letter-spacing: 0.16px;
+  font-size: 1.125rem;
+  line-height: 1.5625rem;
+  font-weight: 500;
+  margin: 0;
+  float: left;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+.cbp-af-header nav a {
+  font-weight: 500;
+  letter-spacing: 2.75px;
+  font-size: 0.6875em;
+  line-height: 2.0625rem;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+/* Transitions and class for reduced height */
+.cbp-af-header .anjana_name,
+.cbp-af-header nav a {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s; }
+
+.cbp-af-header.cbp-af-header-shrink {
+  height: 65px; }
+
+.header {
   width: auto;
   z-index: 2;
+  position: relative;
   overflow: hidden; }
 
 .anjana_name {
@@ -2879,7 +2942,11 @@ div.row {
   padding-left: 8px;
   overflow: hidden;
   position: absolute;
-  font-size: 1 rem; }
+  font-size: 1 rem;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%); }
   @media print, screen and (min-width: 40em) {
     .anjana_name {
       font-size: 1.125rem; } }
@@ -2909,6 +2976,11 @@ a:last-child {
     .nav_link {
       padding-right: 2rem;
       font-size: 0.6875rem; } }
+
+.scene {
+  width: 100%;
+  z-index: 5;
+  margin-top: 120px; }
 
 .promo_area {
   padding-top: 8px;
