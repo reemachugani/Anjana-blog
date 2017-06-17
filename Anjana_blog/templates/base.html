@@ -37,14 +37,14 @@
             {% block navigationlist_and_promotext %}
             <div class="promo_area row">
                 <div class="columns small-12 medium-6">
-                    <ul class="list">
+                        {% block navigatorlist %}
 							<li><a class="make_black">All Projects</a></li>
 							<li><a>Art Direction</a></li>
 							<li><a>Editorial</a></li>
 							<li><a>Type Design</a></li>
 							<li><a>Illustrations</a></li>
 							<li><a>3d Design</a></li>
-                    </ul>
+                        {% endblock %}
                 </div>
                 <div class="columns small-0 medium-6">
                     <div class="promo_text_div">
