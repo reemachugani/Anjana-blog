@@ -3036,7 +3036,7 @@ ul {
 
 .artwork {
   padding-right: 16px;
-  padding-bottom: 32px; }
+  padding-bottom: 16px; }
 
 .project_image {
   display: block; }
@@ -3148,7 +3148,23 @@ figure.effect-honey:hover h3 i {
 .anjana_profile_text {
   padding-left: 8px;
   padding-right: 8xp;
-  padding-bottom: 8px; }
+  padding-bottom: 8px;
+  color: #8c8b8c;
+  letter-spacing: .01em;
+  line-height: 1.4; }
 
 h2 {
   padding-left: 8px; }
+
+.copyright {
+  padding-left: 8px;
+  padding-bottom: 16px;
+  font-family: myriad-pro, sans-serif;
+  font-size: 14px;
+  color: #8c8b8c;
+  margin: 0; }
+
+.profile_services {
+  color: #0f0f0f;
+  font-family: myriad-pro, sans-serif;
+  font-size: 1.5em; }
