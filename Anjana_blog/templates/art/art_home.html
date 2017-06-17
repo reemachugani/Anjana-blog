@@ -4,24 +4,37 @@
 
 	{% for art in arts %}
 
-		<div id="all-arts">
-			<div class="header">{{art.title}}</a>
-			</div>
-            <div>
-                <a href= {% url 'art:art_detail_page' slug=art.slug %}><img src="/media/{{art.image_highres}}" width="30%" height="30%" /></a>
-            </div>
-			<p/>	
-            <!--<span class="date">{{art.pub_date|date}} | </span>	
-            <span class="category"><i>{{art.art_type.category}}</i> | </span>
-            <span class="url"><a href={{ art.url }}> <i>Details</i> </a> </span>
-            <p/>
-			<div class="body">{{art.body|safe}}</div>
-			<br/>	-->
-			{% if not forloop.last %}
-				<div class="underline"></div>
-			{% endif %}
-			<br/>
-		</div>
+		
+			<!-- 
+				{{art.title}}
+				{{art.pub_date|date}}
+				{{art.art_type.category}}
+				{{ art.url }}
+				{{art.body|safe}}
+			-->
+
+        <a class="project columns small-12 medium-6"  href= {% url 'art:art_detail_page' slug=art.slug %} />
+			<figure class="project_image effect-honey">
+				<picture class="project_image">
+					<!--<img class="project_image" srcset="/media/{{art.image_lowres}}" alt="{{art.title}}" />-->
+					<img class="project_image" srcset="http://berkeleypoole.com/content/works/1-ace-hill/cover.jpg" alt="{{art.title}}" />
+				</picture>
+				
+				<figcaption class="project_image">
+					<span class="figcaption_inner">	
+						<h3 class="figcaption_sub">{{art.title}}<br/>
+						<span class="caption_category">{{art.art_type.category}}</span></h3>
+					</span>
+				</figcaption>
+			</figure>
+		</a>
+			
+
+		<p/>	
+
+		{% if not forloop.last %}
+			<div class="underline"></div>
+		{% endif %}
 
 	{% endfor %}
 

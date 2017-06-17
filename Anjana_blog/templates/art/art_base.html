@@ -1,16 +1,14 @@
 {% extends 'base.html' %}
 
 {% block navigatorlist %}
-        <li><a href={% url 'art:art_home' %}> All </a></li>
+        <ul class="list">
+        <li><a class="make_black" href={% url 'art:art_home' %}> All Projects </a></li>
         {% for categ in categories %}
            <li> <a href={% url 'art:art_by_category' category_name=categ.category %}> {{categ.category}} </a></li>
         {% endfor %}
+        </ul>
 {% endblock %}
 
 {% block content %}
-	<div class="span2"></div>
-	<div id="main-content" class="span7" style="padding-top:3%;"> 
-		{% block main-content %} {% endblock %}
-	</div>
-    <div class="span3"></div>
+	{% block main-content %} {% endblock %}
 {% endblock %}

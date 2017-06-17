@@ -2,74 +2,83 @@
 
 	<head>
 		<meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Anjana</title>
 		<link rel="stylesheet" href="/static/css/style.css" />
-
+        <script src="static/js/modernizr.custom.js"></script>
 	</head>
   <body>
- 
-    <div class="scene">
-        <div class="scene_top">
-            <header class="header">
-                <div class="row">
-                    <div class="small-5 medium-6 large-6 columns">
-                        <div class="anjana_name">Anjana Padmakumar</div>
-                    </div>
-                    <div class="columns small-7 medium-6 header__nav large-6">
-                        <nav class="nav_links">
-                            <a class="nav_link" href={% url 'art:art_home' %}>ART WORK</a>
-                            <!--<a class="nav_link" href={% url 'project:project_home' %}>PROJECTS</a>-->
-                            <a class="nav_link" href={% url 'blog:blog_home' %}>BLOG</a>
-                            {% for page in singlepages %}
+
+    <div class="container">
+        <div class="cbp-af-header">
+			<div class="cbp-af-inner">
+				<header class="header">
+                    <div class="row">
+                        <div class="small-5 medium-6 large-6 columns">
+                            <div class="anjana_name"><a href={% url 'art:art_home' %} class="link">Anjana Padmakumar</a></div>
+                        </div>
+                        <div class="columns small-7 medium-6 header__nav large-6">
+                            <nav class="nav_links">
+                                <a class="nav_link" href={% url 'art:art_home' %}>WORK</a>
+                                <!--<a class="nav_link" href={% url 'project:project_home' %}>PROJECTS</a>-->
+                                <a class="nav_link" href={% url 'blog:blog_home' %}>BLOG</a>
+                                {% for page in singlepages %}
                                 <a class="nav_link" href={% url 'singlepage:single_page' slug=page.slug %}>{{page.display_word}}</a>
-                            {% endfor %}
-                        </nav
+                                {% endfor %}
+                            </nav>
+                        </div>
                     </div>
-                </div>
-            </header>
+                </header>
+			</div>
+    	</div>
+        <div class="scene scene_top clearfix">
+
+            {% block navigationlist_and_promotext %}
             <div class="promo_area row">
                 <div class="columns small-12 medium-6">
-                    <ul class="list">
-						{% block navigatorlist %}
-							<li><a>All Projects</a></li>
+                        {% block navigatorlist %}
+							<li><a class="make_black">All Projects</a></li>
 							<li><a>Art Direction</a></li>
 							<li><a>Editorial</a></li>
 							<li><a>Type Design</a></li>
 							<li><a>Illustrations</a></li>
 							<li><a>3d Design</a></li>
-						{% endblock %}
-                    </ul>
+                        {% endblock %}
                 </div>
                 <div class="columns small-0 medium-6">
                     <div class="promo_text_div">
-						{% block promotext %}
-                        	<h1 class="promo_text">Anjana is a Director, Designer and Creative.</h1>
-						{% endblock %}
+                        	<h1 class="promo_text">Anjana is a Director,<br/>
+                                 Designer and Creative.</h1>
                     </div>
                 </div>
             </div>
+            {% endblock %}
         </div>
-        <div class="artwork row">
-            <!-- MAIN-CONTENT, BLOG-ENTRIES, LINKS -->	
-                <div>
-                    {% block content %} {% endblock %}
-                </div>
+        <div class="scene_artwork">
+            <div class="artwork row">
+                {% block content %} {% endblock %}
+            </div>
         </div>
 
         <footer>
             <div class="row">
+                {% block footertext %}
                 <div class="columns medium-6">
-                    <p> All work by Anjana Padmakumar
+                    <p class="copyright"> All work by Anjana Padmakumar
                 </div>
-                <div class="columns medium-6">
+                <div class="columns medium-6 copyright">
                     © 2017
                 </div>
+                {% endblock %}
             </div>
         </footer>
     </div>
  
     <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/classie.js"></script>
+    <script src="/static/js/cbpAnimatedHeader.min.js"></script></script>
+    <script src="/static/js/foundation.min.js"></script>
     <script src="/static/js/script.min.js"></script>
   </body>
 </html>
