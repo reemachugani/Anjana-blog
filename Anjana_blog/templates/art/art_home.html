@@ -14,7 +14,7 @@
 			-->
 
         <a class="project columns small-12 medium-6"  href= {% url 'art:art_detail_page' slug=art.slug %} />
-			<figure class="project_image">
+			<figure class="project_image effect-sadie">
 				<picture class="project_image">
 					<!--<img class="project_image" srcset="/media/{{art.image_lowres}}" alt="{{art.title}}" />-->
 					<img class="project_image" srcset="http://berkeleypoole.com/content/works/1-ace-hill/cover.jpg" alt="{{art.title}}" />
@@ -22,7 +22,7 @@
 				
 				<figcaption class="project_image">
 					<span class="figcaption_inner">	
-						<h3 class="figcaption_heading">{{art.title}}</h3>
+						<h2 class="figcaption_heading">{{art.title}}</h2>
 						<h3 class="figcaption_sub">{{art.art_type.category}}</h3>
 					</span>
 				</figcaption>

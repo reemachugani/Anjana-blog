@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
 {% block navigatorlist %}
-        <li><a href={% url 'art:art_home' %}> All </a></li>
+        <ul class="list">
+        <li><a class="make_black" href={% url 'art:art_home' %}> All Projects </a></li>
         {% for categ in categories %}
            <li> <a href={% url 'art:art_by_category' category_name=categ.category %}> {{categ.category}} </a></li>
         {% endfor %}
+        </ul>
 {% endblock %}
 
 {% block content %}
