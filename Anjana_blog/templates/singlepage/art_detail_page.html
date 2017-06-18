@@ -1,9 +1,13 @@
 {% extends 'singlepage/single_base.html' %}
 
 {% block navigatorlist %}
+    <p> wadaasdas </p>
     <li>Date: {{art.pub_date|date}} </li>	
     <li> Category: {{art.art_type.category}}</li>
     {% if art.url %} <li><a href={{ art.url }}> <i>Links</i> </a> </li>
+{% endblock %}
+
+{% block promotext %}
 {% endblock %}
 
 {% block main-content %}

@@ -22,7 +22,7 @@
                             <nav class="nav_links">
                                 <a class="nav_link" href={% url 'art:art_home' %}>WORK</a>
                                 <!--<a class="nav_link" href={% url 'project:project_home' %}>PROJECTS</a>-->
-                                <a class="nav_link" href={% url 'blog:blog_home' %}>BLOG</a>
+                                <!--<a class="nav_link" href={% url 'blog:blog_home' %}>BLOG</a>-->
                                 {% for page in singlepages %}
                                 <a class="nav_link" href={% url 'singlepage:single_page' slug=page.slug %}>{{page.display_word}}</a>
                                 {% endfor %}
@@ -34,26 +34,28 @@
     	</div>
         <div class="scene scene_top clearfix">
 
-            {% block navigationlist_and_promotext %}
+            
             <div class="promo_area row">
                 <div class="columns small-12 medium-6">
-                        {% block navigatorlist %}
+            {% block navigatorlist %}
 							<li><a class="make_black">All Projects</a></li>
 							<li><a>Art Direction</a></li>
 							<li><a>Editorial</a></li>
 							<li><a>Type Design</a></li>
 							<li><a>Illustrations</a></li>
 							<li><a>3d Design</a></li>
-                        {% endblock %}
+            {% endblock %}
                 </div>
                 <div class="columns small-0 medium-6">
+            {% block promotext %}
                     <div class="promo_text_div">
                         	<h1 class="promo_text">Anjana is a Director,<br/>
                                  Designer and Creative.</h1>
                     </div>
+            {% endblock %}
                 </div>
             </div>
-            {% endblock %}
+            
         </div>
         <div class="scene_artwork">
             <div class="artwork row">

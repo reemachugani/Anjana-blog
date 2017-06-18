@@ -2902,11 +2902,6 @@ div.row {
   display: inline-block; }
 
 .cbp-af-header .anjana_name {
-  color: #0f0f0f;
-  letter-spacing: 0.16px;
-  font-size: 1.125rem;
-  line-height: 1.5625rem;
-  font-weight: 500;
   margin: 0;
   float: left;
   position: relative;
@@ -2944,18 +2939,26 @@ div.row {
   overflow: hidden;
   position: absolute;
   font-size: 1 rem;
+  line-height: 22px;
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%); }
   @media print, screen and (min-width: 40em) {
     .anjana_name {
-      font-size: 1.125rem; } }
+      color: #0f0f0f;
+      letter-spacing: 0.16px;
+      font-size: 1.125rem;
+      line-height: 25px;
+      font-weight: 500; } }
 
 .header__nav {
-  text-align: left;
+  text-align: right;
   padding-left: 0px;
   padding-right: 0px; }
+  @media print, screen and (min-width: 40em) {
+    .header__nav {
+      text-align: left; } }
 
 .nav_links {
   text-align: right; }
@@ -2967,11 +2970,13 @@ a:last-child {
   padding-right: 0; }
 
 .nav_link {
+  margin-bottom: 0;
   color: #0f0f0f;
   text-transform: uppercase;
   font-family: myriad-pro, sans-serif;
   padding-right: 8px;
   padding-left: 8px;
+  padding-top: 8px;
   font-size: 9.625px;
   font-weight: 800;
   letter-spacing: 2.40625px;
@@ -3008,22 +3013,23 @@ a:last-child {
   margin: 0;
   padding-left: 8px; }
 
-.list a {
+.list, .list a {
   color: #8c8b8c;
   font-family: myriad-pro, sans-serif;
-  letter-spacing: 0.16px;
+  letter-spacing: 0.3px;
   line-height: 22.0529px;
   font-weight: 400;
-  font-size: 1.125rem; }
+  font-size: 1rem; }
   @media print, screen and (min-width: 40em) {
-    .list a {
-      font-size: 18px;
-      line-height: 25.2px; } }
-  .list a.make_black {
+    .list, .list a {
+      font-size: 1.125rem;
+      line-height: 25px;
+      font-weight: 500; } }
+  .list.make_black, .list a.make_black {
     color: #0f0f0f;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 11px;
+    font-size: 0.6875rem;
     letter-spacing: 2.24px;
     line-height: 25.2px; }
 
@@ -3149,9 +3155,12 @@ figure.effect-honey:hover h3 i {
   padding-left: 8px;
   padding-right: 8xp;
   padding-bottom: 8px;
+  font-family: myriad-pro, sans-serif;
   color: #8c8b8c;
-  letter-spacing: .01em;
-  line-height: 1.4; }
+  letter-spacing: 0.64px;
+  line-height: 25.2px;
+  font-size: 18px;
+  font-weight: 400; }
 
 h2 {
   padding-left: 8px; }
@@ -3163,8 +3172,3 @@ h2 {
   font-size: 14px;
   color: #8c8b8c;
   margin: 0; }
-
-.profile_services {
-  color: #0f0f0f;
-  font-family: myriad-pro, sans-serif;
-  font-size: 1.5em; }
