@@ -2823,6 +2823,11 @@ html.is-reveal-open body {
 .clearfix::after {
   clear: both; }
 
+.help_text {
+  font-family: myriad-pro, sans-serif;
+  color: #bb9f94;
+  font-size: 25px; }
+
 a:focus, a:hover {
   color: #bb9f94; }
 
@@ -3030,8 +3035,12 @@ a:last-child {
     text-transform: uppercase;
     font-weight: 600;
     font-size: 0.6875rem;
-    letter-spacing: 2.24px;
-    line-height: 25.2px; }
+    letter-spacing: 2px;
+    line-height: 24px; }
+    @media print, screen and (min-width: 40em) {
+      .list.make_black, .list a.make_black {
+        letter-spacing: 2.24px;
+        line-height: 25.2px; } }
 
 ul {
   margin: 0;

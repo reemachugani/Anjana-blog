@@ -66,6 +66,12 @@ $caption-category-font-size: 1rem;
     transform: translateY(-50%);
 }
 
+.help_text {
+    font-family: $primary-font;
+    color: $theme-color;
+    font-size: 25px;
+}
+
 a:focus, a:hover {
 	color: $theme-color;
 }
@@ -294,8 +300,14 @@ a:last-child{
         text-transform: uppercase;
         font-weight: 600;
         font-size: 0.6875rem;
-        letter-spacing: 2.24px;
-        line-height: 25.2px;
+        letter-spacing: 2px;
+        line-height: 24px;
+
+        @include breakpoint(medium)
+        {
+            letter-spacing: 2.24px;
+            line-height: 25.2px;
+        }
     }
 }
 
@@ -473,3 +485,6 @@ h2 {
     color: $text-color;
     margin: 0;
 }
+
+// 404 Page
+
