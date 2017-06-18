@@ -12,12 +12,9 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 import socket
-
-
-# if socket.gethostname() == 'My-Macbook':
-#     DEBUG = TEMPLATE_DEBUG = True
-# else:
-#     DEBUG = TEMPLATE_DEBUG = False
+import dj_database_url
+from dj_database_url import parse as db_url
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,11 +25,22 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 #SECRET_KEY = os.environ['SECRET_KEY']
 
-with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
-    SECRET_KEY = f.read().strip()
+# with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
+#     SECRET_KEY = f.read().strip()
 
-ALLOWED_HOSTS = []
-DEBUG = True
+ALLOWED_HOSTS = ['anjana-blog.herokuapp.com', 'iraa.me', 'anjanapadmakumar.com', 'My-Macbook', '127.0.0.1']
+
+SECRET_KEY = config('SECRET_KEY')
+
+DEBUG = config('DEBUG', default=False, cast=bool)
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=config(
+            'DATABASE_URL', 
+            default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'))
+    ),
+}
 
 # Application definition
 
@@ -86,17 +94,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -143,8 +140,10 @@ MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'staticfiles'),
 )
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
